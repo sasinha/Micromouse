@@ -13,18 +13,18 @@ void motorSetup(void) {
 
 void run(void) {
   if (motorSpeedLeft > 0) {
-    analogWrite(M1Forward, motorSpeedLeft);
+    analogWrite(M1Forward, motorSpeedLeft % 255);
     analogWrite(M1Reverse, 0);
   } else {
-    analogWrite(M1Reverse, -1 * motorSpeedLeft);
+    analogWrite(M1Reverse, (-1 * motorSpeedLeft) % 255);
     analogWrite(M1Forward, 0);
   }
 
   if (motorSpeedRight > 0) {
-    analogWrite(M2Forward, motorSpeedRight);
+    analogWrite(M2Forward, motorSpeedRight % 255);
     analogWrite(M2Reverse, 0);
   } else {
-    analogWrite(M2Reverse, -1 * motorSpeedRight);
+    analogWrite(M2Reverse, (-1 * motorSpeedRight) % 255);
     analogWrite(M2Forward, 0);
   }
 
