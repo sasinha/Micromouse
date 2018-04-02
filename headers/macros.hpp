@@ -5,10 +5,10 @@
 #define M2Reverse 5        // Right
 #define M2Forward 6
 
-#define Receiver_L A0    //Facing forwards
-#define Receiver_FL A1    //Facing left
-#define Receiver_FR A2    //Facing right
-#define Receiver_R A3    //Facing forwards
+#define Receiver_FL A9    //Facing left
+#define Receiver_L A8    //Facing forwards
+#define Receiver_R A7    //Facing forwards
+#define Receiver_FR A6    //Facing right
 
 #define Emitter_L 3        //Forwards
 #define Emitter_FL 6    //Left
