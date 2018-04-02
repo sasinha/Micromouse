@@ -10,10 +10,10 @@
 #define Receiver_FR A2    //Facing right
 #define Receiver_R A3    //Facing forwards
 
-#define Emitter_L 21        //Forwards
-#define Emitter_FL 20    //Left
-#define Emitter_FR 4        //Right
-#define Emitter_R 3        //Forwards
+#define Emitter_L 3        //Forwards
+#define Emitter_FL 6    //Left
+#define Emitter_FR 5        //Right
+#define Emitter_R 4        //Forwards
 
 #define EncoderL_A 23
 #define EncoderL_B 22
