@@ -9,28 +9,29 @@ void motorSetup(void) {
   pinMode(M1Reverse, OUTPUT);
   pinMode(M2Forward, OUTPUT);
   pinMode(M2Reverse, OUTPUT);
+
 }
 
-void run(void) {
+void motorRun(void) {
   if (motorSpeedLeft > 0) {
-    analogWrite(M1Forward, motorSpeedLeft % 255);
-    analogWrite(M1Reverse, 0);
+    analogWrite(M2Forward, motorSpeedLeft % 255);
+    analogWrite(M2Reverse, 0);
   } else {
-    analogWrite(M1Reverse, (-1 * motorSpeedLeft) % 255);
-    analogWrite(M1Forward, 0);
+    analogWrite(M2Reverse, (-1 * motorSpeedLeft) % 255);
+    analogWrite(M2Forward, 0);
   }
 
   if (motorSpeedRight > 0) {
-    analogWrite(M2Forward, motorSpeedRight % 255);
-    analogWrite(M2Reverse, 0);
+    analogWrite(M1Forward, motorSpeedRight % 255);
+    analogWrite(M1Reverse, 0);
   } else {
-    analogWrite(M2Reverse, (-1 * motorSpeedRight) % 255);
-    analogWrite(M2Forward, 0);
+    analogWrite(M1Reverse, (-1 * motorSpeedRight) % 255);
+    analogWrite(M1Forward, 0);
   }
 
 }
 
 void straight(void) {
-  motorSpeedLeft = 50;
+  // motorSpeedLeft = 50;
   motorSpeedRight = 50;
 }

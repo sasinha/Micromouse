@@ -7,4 +7,5 @@
 void sensorSetup(void);
 
 void sensorTestPrint(void);
+void sensorTestPrint(int del);
 

@@ -9,6 +9,6 @@ extern int motorSpeedRight;
 
 void motorSetup(void);
 
-void run(void);
+void motorRun(void);
 
 void straight(void);

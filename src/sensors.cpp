@@ -2,19 +2,19 @@
 # include <Arduino.h>
 
 // Premapped starting and ending range values
-#define RAW_START_L 20;
-#define RAW_START_FL 20;
-#define RAW_START_FR 20;
-#define RAW_START_R 20;
+#define RAW_START_L 20
+#define RAW_START_FL 20
+#define RAW_START_FR 20
+#define RAW_START_R 20
 
-#define RAW_END_L 20;
-#define RAW_END_FL 20;
-#define RAW_END_FR 20;
-#define RAW_END_R 20;
+#define RAW_END_L 20
+#define RAW_END_FL 20
+#define RAW_END_FR 20
+#define RAW_END_R 20
 
 // Mapped starting and ending range values
-#define MAPPED_START 0;
-#define MAPPED_END 255;
+#define MAPPED_START 0
+#define MAPPED_END 255
 
 void sensorSetup(void) {
 	pinMode(Emitter_L, OUTPUT);
@@ -71,8 +71,10 @@ int getSensorRead(int receiverPin)
 	}
 	digitalWrite(emitter, HIGH);
 
-	int toRet = map(receiverPin, RAW_START,
-		RAW_END, MAPPED_START, MAPPED_END);
+	int toRet = map(receiverPin, RAW_START, RAW_END, MAPPED_START, MAPPED_END);
+	digitalWrite(emitter, LOW);
+
+	return toRet;
 
 
 }
@@ -91,6 +93,9 @@ void sensorTestPrint(void) {
 	Serial.println(analogRead(Receiver_FR));
 
 	Serial.println("\n");
+}
 
-	delay(500);
+void sensorTestPrint(int del) {
+	sensorTestPrint();
+	delay(del);
 }
