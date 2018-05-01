@@ -5,10 +5,14 @@ int motorSpeedLeft = 0;
 int motorSpeedRight = 0;
 
 void motorSetup(void) {
+  // Motor speed pins
   pinMode(M1Forward, OUTPUT);
   pinMode(M1Reverse, OUTPUT);
   pinMode(M2Forward, OUTPUT);
   pinMode(M2Reverse, OUTPUT);
+
+  // Encoders
+
 
 }
 
@@ -32,6 +36,6 @@ void motorRun(void) {
 }
 
 void straight(void) {
-  // motorSpeedLeft = 50;
+  motorSpeedLeft = 150;
   motorSpeedRight = 50;
 }
