@@ -16,8 +16,8 @@
 #define Receiver_FR 15
 #define Receiver_FL 22
 
-#define EncoderL_B 19
 #define EncoderL_A 18
+#define EncoderL_B 19
 #define EncoderR_A 17
 #define EncoderR_B 16
 
