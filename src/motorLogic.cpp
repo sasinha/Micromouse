@@ -37,5 +37,5 @@ void motorRun(void) {
 
 void straight(void) {
   motorSpeedLeft = 150;
-  motorSpeedRight = 50;
+  motorSpeedRight = 150;
 }

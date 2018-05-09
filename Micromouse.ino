@@ -21,7 +21,7 @@ void loop() {
   motorRun();
 
   findFirstForward();
-  delay(100);
+  delay(1000);
   
 
 }

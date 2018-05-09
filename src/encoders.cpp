@@ -1,6 +1,8 @@
 # include "../headers/encoders.hpp"
 # include <Arduino.h>
 
+# define EncCountsPerRev 12
+
 int enc_LA = 0;
 int enc_LB = 0;
 int enc_RA = 0;
@@ -30,6 +32,21 @@ void resetEncoders(void) {
   enc_RB = 0;
 }
 
+
+dist getDist(void) {
+  dist newDist;
+  float leftDist; 
+  float rightDist;
+
+  leftDist = (enc_LA / 12) * (Pi * LeftDiameterCm);
+  rightDist = (enc_LA / 12) * (Pi * RightDiameterCm);
+
+  newDist.left = leftDist;
+  newDist.right = rightDist;
+
+  return newDist;
+
+}
 
 void setupEncoders(void) {
 
