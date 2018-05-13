@@ -29,4 +29,9 @@
 # define LeftDiameterCm 2
 # define RightDiameterCm 2
 
-# define Pi 3.14159
+# define MouseLenCm 13		// Maybe need
+# define MouseWidthCm 13
+
+# define CellLenCm 18
+
+# define maxAnalogWrite 256

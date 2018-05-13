@@ -10,6 +10,8 @@ typedef struct dist {
 	float right;
 } dist;
 
+extern volatile dist mouseDist;
+
 void setupEncoders(void);
 
 void findFirstForward(void);

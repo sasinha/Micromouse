@@ -2,6 +2,7 @@
 # include <Arduino.h>
 
 # define EncCountsPerRev 12
+# define Pi 3.14159
 
 int enc_LA = 0;
 int enc_LB = 0;
@@ -30,21 +31,21 @@ void resetEncoders(void) {
   enc_LB = 0;
   enc_RA = 0;
   enc_RB = 0;
+
+  mouseDist.left = 0;
+  mouseDist.right = 0;
 }
 
 
-dist getDist(void) {
-  dist newDist;
+void getDist(void) {
   float leftDist; 
   float rightDist;
 
-  leftDist = (enc_LA / 12) * (Pi * LeftDiameterCm);
-  rightDist = (enc_LA / 12) * (Pi * RightDiameterCm);
+  leftDist = (enc_LA / EncCountsPerRev) * (Pi * LeftDiameterCm);
+  rightDist = (enc_LA / EncCountsPerRev) * (Pi * RightDiameterCm);
 
-  newDist.left = leftDist;
-  newDist.right = rightDist;
-
-  return newDist;
+  mouseDist.left = leftDist;
+  mouseDist.right = rightDist;
 
 }
 
