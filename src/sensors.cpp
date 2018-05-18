@@ -16,18 +16,18 @@
 #define MAPPED_START 0
 #define MAPPED_END 255
 
+Sensors* mouseSens = new Sensors();
+
 void sensorSetup(void) {
 	pinMode(Emitter_L, OUTPUT);
-	digitalWrite(Emitter_L, HIGH);
-
 	pinMode(Emitter_FL, OUTPUT);
-	digitalWrite(Emitter_FL, HIGH);
-
 	pinMode(Emitter_FR, OUTPUT);
-	digitalWrite(Emitter_FR, HIGH);
-	
 	pinMode(Emitter_R, OUTPUT);
-	digitalWrite(Emitter_R, HIGH);
+
+	digitalWrite(Emitter_L, LOW);
+	digitalWrite(Emitter_FL, LOW);
+	digitalWrite(Emitter_FR, LOW);
+	digitalWrite(Emitter_R, LOW);
 
 	pinMode(Receiver_L, INPUT);
 	pinMode(Receiver_FL, INPUT);
@@ -35,67 +35,52 @@ void sensorSetup(void) {
 	pinMode(Receiver_R, INPUT);
 }
 
-int getSensorRead(int receiverPin)
-{
-	int RAW_START;
-	int RAW_END;
-	int emitter;
-	switch(receiverPin)
-	{
-		case Receiver_L:
-			RAW_START = RAW_START_L;
-			RAW_END = RAW_END_L;
-
-			emitter = Emitter_L;
-			break;
-		case Receiver_FL:
-			RAW_START = RAW_START_FL;
-			RAW_END = RAW_END_FL;
-
-			emitter = Emitter_FL;
-			break;
-		case Receiver_FR:
-			RAW_START = RAW_START_FR;
-			RAW_END = RAW_END_FR;
-
-			emitter = Emitter_FR;
-			break;
-		case Receiver_R:
-			RAW_START = RAW_START_R;
-			RAW_END = RAW_END_R;
-
-			emitter = Emitter_R;
-			break;
-		default:
-			return -1; 
-	}
-	digitalWrite(emitter, HIGH);
-
-	int toRet = map(receiverPin, RAW_START, RAW_END, MAPPED_START, MAPPED_END);
-	digitalWrite(emitter, LOW);
-
-	return toRet;
-
-
+void getSensorValsLoop(void) {
+	getSensorVals();
 }
 
-void sensorTestPrint(void) {
+Sensors* getSensorVals(void) {
+
+	digitalWrite(Emitter_L, HIGH);
+	digitalWrite(Emitter_FL, HIGH);
+	digitalWrite(Emitter_FR, HIGH);
+	digitalWrite(Emitter_R, HIGH);
+
+	mouseSens->l = analogRead(Receiver_L);
+	mouseSens->fl = analogRead(Receiver_FL);
+	mouseSens->fr = analogRead(Receiver_FR);
+	mouseSens->r = analogRead(Receiver_R);
+
+	digitalWrite(Emitter_L, LOW);
+	digitalWrite(Emitter_FL, LOW);
+	digitalWrite(Emitter_FR, LOW);
+	digitalWrite(Emitter_R, LOW);
+
+	return mouseSens;
+}
+
+int i = 0;
+void sensorTestPrintLoop(void) {
+	Serial.println(i);
+
 	Serial.print("L: ");
-	Serial.println(analogRead(Receiver_L));
+	Serial.println(mouseSens->l);
 
 	Serial.print("FL: ");
-	Serial.println(analogRead(Receiver_FL));
+	Serial.println(mouseSens->fl);
+	
+	Serial.print("FR: ");
+	Serial.println(mouseSens->fr);
 
 	Serial.print("R: ");
-	Serial.println(analogRead(Receiver_R));
+	Serial.println(mouseSens->r);
 
-	Serial.print("FR: ");
-	Serial.println(analogRead(Receiver_FR));
 
+	i++;
 	Serial.println("\n");
 }
 
-void sensorTestPrint(int del) {
-	sensorTestPrint();
+void sensorTestPrintLoop(int del) {
+	sensorTestPrintLoop();
 	delay(del);
 }

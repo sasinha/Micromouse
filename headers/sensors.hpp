@@ -4,8 +4,17 @@
 
 # include "macros.hpp"
 
+typedef struct Sensors {
+	int l, fl, r, fr;
+} Sensors;
+
+extern Sensors* mouseSens;
+
 void sensorSetup(void);
 
-void sensorTestPrint(void);
-void sensorTestPrint(int del);
+Sensors* getSensorVals(void);
+void getSensorValsLoop(void);
+
+void sensorTestPrintLoop(void);
+void sensorTestPrintLoop(int del);
 
