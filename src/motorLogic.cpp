@@ -13,6 +13,9 @@ void motorSetup(void) {
   pinMode(M2Forward, OUTPUT);
   pinMode(M2Reverse, OUTPUT);
 
+  motorSpeedLeft = 0;
+  motorSpeedRight = 0;
+
 }
 
 

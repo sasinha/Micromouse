@@ -64,16 +64,16 @@ void sensorTestPrintLoop(void) {
 	Serial.println(i);
 
 	Serial.print("L: ");
-	Serial.println(mouseSens->l);
+	// Serial.println(mouseSens->l);
 
 	Serial.print("FL: ");
-	Serial.println(mouseSens->fl);
+	// Serial.println(mouseSens->fl);
 	
 	Serial.print("FR: ");
-	Serial.println(mouseSens->fr);
+	// Serial.println(mouseSens->fr);
 
 	Serial.print("R: ");
-	Serial.println(mouseSens->r);
+	// Serial.println(mouseSens->r);
 
 
 	i++;
